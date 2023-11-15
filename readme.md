@@ -45,3 +45,10 @@ constraints {
         }
     }
 ```
+## Modularization Example
+
+[https://github.com/ad-astra-per-ardua/selfproject_temp](https://github.com/ad-astra-per-ardua/selfproject_temp/tree/main/app)
+
+Repactored to 
+
+[https://github.com/ad-astra-per-ardua/123321/tree/master/app](https://github.com/ad-astra-per-ardua/123321/tree/master/app)https://github.com/ad-astra-per-ardua/123321/tree/master/app
