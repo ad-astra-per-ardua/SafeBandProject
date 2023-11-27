@@ -26,24 +26,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Safebandproject"
         tools:targetApi="33">
-    <activity
-        android:name=".profile_setting"
-        android:exported="false" />
-    <activity
-        android:name=".register_app"
-        android:exported="false" />
-    <activity
-        android:name=".emergency_call"
-        android:exported="false" />
-    <activity
-        android:name=".inquiry"
-        android:exported="false" />
-    <activity
-        android:name=".bluetooth"
-        android:exported="false" />
-    <activity
-        android:name=".announcement"
-        android:exported="false" />
+<!--    <activity-->
+<!--        android:name=".profile_setting"-->
+<!--        android:exported="false" />-->
+<!--    <activity-->
+<!--        android:name=".register_app"-->
+<!--        android:exported="false" />-->
+<!--    <activity-->
+<!--        android:name=".emergency_call"-->
+<!--        android:exported="false" />-->
+<!--    <activity-->
+<!--        android:name=".inquiry"-->
+<!--        android:exported="false" />-->
+<!--    <activity-->
+<!--        android:name=".bluetooth"-->
+<!--        android:exported="false" />-->
+<!--    <activity-->
+<!--        android:name=".announcement"-->
+<!--        android:exported="false" />-->
 
     <meta-data
         android:name="com.kakao.sdk.AppKey"
