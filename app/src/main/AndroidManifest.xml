@@ -50,7 +50,7 @@
         android:value="54267cc4cf773b649eeed0c63c91ea15" />
 
     <activity
-        android:name="com.android.safeband.MainActivity"
+        android:name="com.android.safeband.activity.MainActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
