@@ -6,13 +6,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ExtraText"
-    tools:context="com.android.safeband.activity.MainActivity">
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+    tools:ignore="ExtraText">
+
     <RelativeLayout
         android:id="@+id/map_view"
         android:layout_width="match_parent"
@@ -23,41 +18,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <EditText
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/round"
-            android:minHeight="48dp"
-            android:textColor="#000000"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck,TextFields,VisualLintTextFieldSize"
-            android:importantForAutofill="no"
-            android:hint=" 지도 검색"/>
-
-        <ImageButton
-            android:id="@+id/call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="24dp"
-            android:background="#00000000"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/call_iconxml" />
-
-    </RelativeLayout>
+        android:layout_height="match_parent"/>
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
         <ImageButton
             android:id="@+id/menu_button"
             android:layout_width="wrap_content"
