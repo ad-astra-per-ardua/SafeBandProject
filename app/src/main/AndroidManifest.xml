@@ -25,20 +25,18 @@
         android:theme="@style/Theme.Safebandproject"
         tools:targetApi="33">
         <activity
+            android:name="com.android.safeband.activity.emergencyCallActivity"
+            android:exported="false" />
+        <activity
             android:name="com.android.safeband.activity.inquiryActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name="com.android.safeband.activity.announcementActivity"
-            android:exported="false" />
-        <!-- <activity -->
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name=".profile_setting" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
         <!-- android:name=".register_app" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".emergency_call" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
         <!-- android:name=".bluetooth" -->
