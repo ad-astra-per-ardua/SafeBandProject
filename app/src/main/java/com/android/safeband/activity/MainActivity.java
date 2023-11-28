@@ -55,28 +55,13 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
 
         //메뉴를 눌렀을 때
         ImageButton menu_open = (ImageButton)findViewById(R.id.menu_button);
-        menu_open.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(drawerView);
-            }
-        });
+        menu_open.setOnClickListener(v -> drawerLayout.openDrawer(drawerView));
 
-        drawerView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return true;
-            }
-        });
+        drawerView.setOnTouchListener((view, motionEvent) -> true);
 
         //메뉴 닫기를 눌렀을 때
         ImageButton btn_close = (ImageButton)findViewById(R.id.btn_close);
-        btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.closeDrawers();
-            }
-        });
+        btn_close.setOnClickListener(view -> drawerLayout.closeDrawers());
 
         DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() { ///drawer 오픈됐을 때 작동함
             @Override
@@ -101,12 +86,9 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         };
         //공지사항 버튼
         btn_announcement = (Button)findViewById(R.id.btn_announcement);
-        btn_announcement.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), announcementActivity.class);
-                startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
-            }
+        btn_announcement.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), announcementActivity.class);
+            startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
         });
 
 //        //블루투스 버튼
@@ -121,32 +103,23 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
 
         //문의하기 버튼
         btn_inquriy = (Button)findViewById(R.id.btn_inquiry);
-        btn_inquriy.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), inquiryActivity.class);
-                startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
-            }
+        btn_inquriy.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), inquiryActivity.class);
+            startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
         });
 
         // 비상연락망
         btn_call = (Button)findViewById(R.id.btn_call);
-        btn_call.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), emergencyCallActivity.class);
-                startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
-            }
+        btn_call.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), emergencyCallActivity.class);
+            startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
         });
 
         //프로필 설정
         btn_profile_setting = (ImageButton)findViewById(R.id.btn_profile_setting);
-        btn_profile_setting.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), profileSettingActivity.class);
-                startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
-            }
+        btn_profile_setting.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), profileSettingActivity.class);
+            startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
         });
 
         mapView = new MapView(this);
