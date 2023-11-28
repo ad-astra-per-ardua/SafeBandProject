@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         btn_announcement.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), announcement.class);
+                Intent intent = new Intent(getApplicationContext(), announcementActivity.class);
                 startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
             }
         });
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         btn_inquriy.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), inquiry.class);
+                Intent intent = new Intent(getApplicationContext(), inquiryActivity.class);
                 startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
             }
         });

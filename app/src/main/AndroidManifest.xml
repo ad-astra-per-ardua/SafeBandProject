@@ -25,6 +25,10 @@
         android:theme="@style/Theme.Safebandproject"
         tools:targetApi="33">
         <activity
+            android:name="com.android.safeband.activity.inquiryActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name="com.android.safeband.activity.announcementActivity"
             android:exported="false" />
         <!-- <activity -->
@@ -35,9 +39,6 @@
         <!-- android:exported="false" /> -->
         <!-- <activity -->
         <!-- android:name=".emergency_call" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".inquiry" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
         <!-- android:name=".bluetooth" -->
