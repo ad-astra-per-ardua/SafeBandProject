@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         btn_call.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), emergency_call.class);
+                Intent intent = new Intent(getApplicationContext(), emergencyCallActivity.class);
                 startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
             }
         });
