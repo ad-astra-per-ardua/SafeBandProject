@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -68,6 +69,10 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         //메뉴 닫기를 눌렀을 때
         ImageButton btn_close = (ImageButton)findViewById(R.id.btn_close);
         btn_close.setOnClickListener(view -> drawerLayout.closeDrawers());
+
+        ReCheckDeleteAccount = new Dialog(this);
+        ReCheckDeleteAccount.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        ReCheckDeleteAccount.setContentView(R.layout.recheck_delete_account);
 
         // 회원 탈퇴를 눌렀을 때
         Button btn_out = findViewById(R.id.btn_out);
