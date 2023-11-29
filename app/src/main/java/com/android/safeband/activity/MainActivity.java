@@ -63,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         ImageButton btn_close = (ImageButton)findViewById(R.id.btn_close);
         btn_close.setOnClickListener(view -> drawerLayout.closeDrawers());
 
+        // 회원 탈퇴를 눌렀을 때
+        Button btn_out = findViewById(R.id.btn_out);
+        btn_out.setOnClickListener(view -> {
+
+        });
         DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() { ///drawer 오픈됐을 때 작동함
             @Override
             public void onDrawerSlide(@NonNull @org.jetbrains.annotations.NotNull View drawerView, float slideOffset) {

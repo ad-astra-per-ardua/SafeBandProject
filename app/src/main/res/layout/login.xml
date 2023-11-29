@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="24dp" >
 
             <TextView
                 android:id="@+id/signupText"
@@ -120,7 +120,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginStart="10dp"/>
             </LinearLayout>
-
 
         </LinearLayout>
 
