@@ -6,10 +6,13 @@ import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
@@ -29,6 +32,7 @@ import net.daum.mf.map.api.MapView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements MapView.CurrentLocationEventListener, MapView.MapViewEventListener {
     private DrawerLayout drawerLayout;
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
     private Button btn_call, btn_announcement, btn_bluetooth, btn_inquriy;
     private ImageButton btn_profile_setting;
     private Intent data;
+
+    Dialog ReCheckDeleteAccount;
 
     public MainActivity() {
     }
@@ -66,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         // 회원 탈퇴를 눌렀을 때
         Button btn_out = findViewById(R.id.btn_out);
         btn_out.setOnClickListener(view -> {
-
+            showDialog01();
         });
         DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() { ///drawer 오픈됐을 때 작동함
             @Override
@@ -174,7 +180,6 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
     }
 
 
-
     // 권한 체크 이후로직
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grandResults) {
@@ -263,4 +268,24 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
 
     }
 
+    public void showDialog01() {
+        ReCheckDeleteAccount.show();
+        Objects.requireNonNull(ReCheckDeleteAccount.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        // 아니요 버튼
+        Button noBtn = ReCheckDeleteAccount.findViewById(R.id.noButton);
+        noBtn.setOnClickListener(view -> {
+            ReCheckDeleteAccount.dismiss(); // 닫기
+        });
+
+        // 네 버튼
+        Button yesBtn = ReCheckDeleteAccount.findViewById(R.id.yesButton);
+        yesBtn.setOnClickListener(view -> {
+            // 원하는 기능
+
+
+            // finish(); // 앱 종료
+        });
+
+    }
 }
