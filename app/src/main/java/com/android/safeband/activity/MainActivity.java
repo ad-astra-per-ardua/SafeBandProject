@@ -2,6 +2,7 @@ package com.android.safeband.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -24,6 +25,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 import com.android.safebandproject.R;
@@ -42,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
     private MapView mapView;
     private ViewGroup mapViewContainer;
 
-    private Button btn_call, btn_announcement, btn_bluetooth, btn_inquriy;
+    // soundPlayThenCall 버튼은 사라질 버튼(하드웨어가 완성되면 없어질 부분)
+    private Button btn_call, btn_announcement, btn_bluetooth, btn_inquriy, soundPlayThenCall;
     private ImageButton btn_profile_setting;
     private Intent data;
 
@@ -56,6 +59,22 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1000;
+
+        // 전화걸기 권한 요청
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+
+        // 권한이 없을 때
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            // 사용자가 권한을 거부한 적이 있을 때
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+                Toast.makeText(this,"전화 권한이 필요합니다.", Toast.LENGTH_LONG).show();
+            } else {
+                // 전화 걸기 권한을 요청한다. 뒤에 상수는 요청을 식별할 때 사용한다.
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, MY_PERMISSIONS_REQUEST_CALL_PHONE);
+            }
+        }
 
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerView = (View)findViewById(R.id.drawer);
@@ -136,6 +155,13 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         btn_profile_setting.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), profileSettingActivity.class);
             startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
+        });
+
+        // 소리 재생 후 전화 걸리는 버튼 (하드웨어 연결시 없어질 버튼)
+        soundPlayThenCall = findViewById(R.id.soundPlayThenCall);
+        soundPlayThenCall.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), CountdownTimer.class);
+            startActivityForResult(intent, REQUEST_CODE);
         });
 
         mapView = new MapView(this);
