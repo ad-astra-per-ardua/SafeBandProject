@@ -2,6 +2,7 @@ package com.android.safeband.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -24,6 +25,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 import com.android.safebandproject.R;
@@ -57,6 +59,22 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1000;
+
+        // 전화걸기 권한 요청
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+
+        // 권한이 없을 때
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            // 사용자가 권한을 거부한 적이 있을 때
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+                Toast.makeText(this,"전화 권한이 필요합니다.", Toast.LENGTH_LONG).show();
+            } else {
+                // 전화 걸기 권한을 요청한다. 뒤에 상수는 요청을 식별할 때 사용한다.
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, MY_PERMISSIONS_REQUEST_CALL_PHONE);
+            }
+        }
 
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerView = (View)findViewById(R.id.drawer);
