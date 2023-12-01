@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
     private MapView mapView;
     private ViewGroup mapViewContainer;
 
-    private Button btn_call, btn_announcement, btn_bluetooth, btn_inquriy;
+    // soundPlayThenCall 버튼은 사라질 버튼(하드웨어가 완성되면 없어질 부분)
+    private Button btn_call, btn_announcement, btn_bluetooth, btn_inquriy, soundPlayThenCall;
     private ImageButton btn_profile_setting;
     private Intent data;
 
@@ -136,6 +137,13 @@ public class MainActivity extends AppCompatActivity implements MapView.CurrentLo
         btn_profile_setting.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), profileSettingActivity.class);
             startActivityForResult(intent,REQUEST_CODE);  //intent를 넣어 실행시키게 됩니다.
+        });
+
+        // 소리 재생 후 전화 걸리는 버튼 (하드웨어 연결시 없어질 버튼)
+        soundPlayThenCall = findViewById(R.id.soundPlayThenCall);
+        soundPlayThenCall.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), CountdownTimer.class);
+            startActivityForResult(intent, REQUEST_CODE);
         });
 
         mapView = new MapView(this);
