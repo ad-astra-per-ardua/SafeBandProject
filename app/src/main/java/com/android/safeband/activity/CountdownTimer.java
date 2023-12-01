@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -61,6 +63,13 @@ public class CountdownTimer extends AppCompatActivity {
     }
 
     private void startSound() {
+        // AudioManager 인스턴스를 얻습니다.
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        // 볼륨을 최대로 설정합니다.
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0);
+
         //  사운드 무한 반복 설정
         mediaPlayer.setLooping(true);
         mediaPlayer.start();    // 사운드 플레이 시작
